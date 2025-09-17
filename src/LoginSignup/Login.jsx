@@ -212,10 +212,11 @@ export default function LoginPage() {
                 borderRadius: "26px",
                 fontSize: "17px",
               }}
+              onClick={handleClickOpen}
             >
               Login
             </Button>
-            <Box
+            {/* <Box
               sx={{
                 textAlign: "center",
                 my: 3,
@@ -240,7 +241,7 @@ export default function LoginPage() {
               >
                 Terms and Conditions
               </Link>
-            </Box>
+            </Box> */}
           </div>
         </Box>
 
@@ -249,50 +250,36 @@ export default function LoginPage() {
           onClose={handleClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
+          className="LoginPopup"
+          fullWidth
+          maxWidth="md"
           sx={{
             borderRadius: "20px",
           }}
         >
-          <DialogTitle id="alert-dialog-title">
-            Terms and Conditions
-          </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-              <p>
-                By using this application, you acknowledge and agree that your
-                call activities, performance metrics, and productivity data may
-                be tracked and recorded. This information will be used only for
-                internal purposes such as quality assurance, training, and
-                performance improvement. All personal data will be kept secure
-                and confidential, accessible only to authorized personnel. You
-                are responsible for safeguarding your login credentials, and any
-                activity carried out through your account will be treated as
-                your own.
-              </p>
-              <p>
-                Misuse of this application—including sharing accounts, disabling
-                monitoring features, tampering with data, or attempting
-                unauthorized access—may result in disciplinary action as per
-                company policy. The company reserves the right to update,
-                modify, or revise these Terms & Conditions at any time, and your
-                continued use of the application indicates your acceptance of
-                the most recent version. The company is not liable for issues
-                arising from negligence in protecting login credentials or from
-                unauthorized third-party use.
-              </p>
+              <h1>Successfull</h1>
+              <p>You’re in! Explore your dashboard.</p>
             </DialogContentText>
           </DialogContent>
           <DialogActions
             sx={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "center",
               alignItems: "center",
               my: 1,
             }}
           >
-            <Button onClick={handleClose}>Accept and Continue</Button>
-            <img src={logo1} />
+            <Link
+              href="/terms-condition"
+              onClick={handleClose}
+              className="DashboardBtn"
+            >
+              Go to Dashboard
+            </Link>
           </DialogActions>
+          <img src={logo1} />
         </Dialog>
       </Grid>
     </Grid>
