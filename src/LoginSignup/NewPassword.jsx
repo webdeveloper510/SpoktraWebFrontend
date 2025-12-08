@@ -16,8 +16,8 @@ import "../assets/css/LoginSignup.css";
 import logo from "../assets/images/logo1.png";
 import logo1 from "../assets/images/logo2.png";
 
-import Visibility from "../assets/images/showpassword.svg";
-import VisibilityOff from "../assets/images/hidepassword.svg";
+import Visibility from "../assets/images/showpassword.png";
+import VisibilityOff from "../assets/images/hidepassword.png";
 
 export default function NewPassword() {
   const [showPassword, setShowPassword] = React.useState(false);

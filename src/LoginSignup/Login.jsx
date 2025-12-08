@@ -1,287 +1,139 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
-  Grid,
   Box,
-  Paper,
   Typography,
   TextField,
-  FormControlLabel,
   Checkbox,
   Button,
-  Link,
   InputAdornment,
   IconButton,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
 } from "@mui/material";
-import "../assets/css/LoginSignup.css";
-import logo from "../assets/images/logo1.png";
-import logo1 from "../assets/images/logo2.png";
-import user from "../assets/images/name.svg";
-import password from "../assets/images/password.svg";
 
-import Visibility from "../assets/images/showpassword.svg";
-import VisibilityOff from "../assets/images/hidepassword.svg";
-import checkedImg from "../assets/images/checked.svg";
-import uncheckedImg from "../assets/images/unchecked.svg";
+import "../assets/css/LoginSignup.css";
+
+import girlImg from "../assets/images/Loginimage.png";
+import brandLogo from "../assets/images/logo2.png";
+import eyeOpen from "../assets/images/showpassword.png";
+import eyeClose from "../assets/images/hidepassword.png";
+import checkedImg from "../assets/images/checked.png";
+import uncheckedImg from "../assets/images/unchecked.png";
 
 export default function LoginPage() {
-  const [showPassword, setShowPassword] = React.useState(false);
-  const [showModal, setshowModal] = React.useState(false);
-
-  const handleTogglePassword = () => {
-    setShowPassword((prev) => !prev);
-  };
-
-  const handleClickOpen = () => {
-    setshowModal(true);
-  };
-
-  const handleClose = () => {
-    setshowModal(false);
-  };
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <Grid
-      container
+    <Box
+      className="login-container"
       sx={{
-        width: "100%",
-        height: "100vh",
+        display: "block",
+        minHeight: "100vh",
       }}
     >
-      <Grid
-        item
-        xs={12}
-        md={6}
-        className="loginBg"
+      <Box
+        p={0}
         sx={{
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "white",
-          height: "100vh",
-          float: "left",
-          width: "45%",
+          minHeight: "100vh",
+          justifyContent: "space-between",
         }}
       >
-        <img src={logo} alt="logo" width="300px" />
-      </Grid>
+        {/* Left Section */}
+        <Box
+          className="left-section"
+          sx={{
+            flex: 1,
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <img src={girlImg} className="girl-img" alt="agent" />
+          <img src={brandLogo} className="brand-logo" alt="logo" />
+        </Box>
 
-      <Grid
-        item
-        xs={12}
-        md={6}
-        component={Paper}
-        square
-        elevation={0}
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          height: "100vh",
-          float: "left",
-          width: "55%",
-          paddingLeft: "6%",
-        }}
-      >
-        <Box sx={{ maxWidth: "90%", width: "100%", px: { xs: 3, sm: 0 } }}>
-          <img src={logo1} alt="logo" className="ColorLogo" />
+        {/* Right Section */}
+        <Box
+          className="right-section"
+          sx={{
+            flex: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            minHeight: "100vh",
+          }}
+        >
+          <Box className="login-box">
+            {/* TITLE */}
+            <Typography className="welcome-title">Welcome!</Typography>
 
-          <Typography
-            variant="h5"
-            sx={{
-              fontSize: "37px",
-              color: "#453c3d",
-              fontWeight: "400",
-            }}
-          >
-            Welcome Login with credentials
-          </Typography>
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            mb={3}
-            sx={{
-              fontSize: "23px",
-              color: "#9e9092",
-              fontWeight: "400",
-            }}
-          >
-            Sign in by entering details below
-          </Typography>
+            <Typography className="welcome-subtitle">
+              Sign In By Entering New Password Below
+            </Typography>
 
-          <div className="formRow">
-            <TextField
-              fullWidth
-              margin="normal"
-              placeholder="Username"
-              className="inputFields"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <img src={user} alt="user" />
-                  </InputAdornment>
-                ),
-              }}
-            />
-
-            <TextField
-              fullWidth
-              margin="normal"
-              placeholder="************"
-              className="inputFields"
-              type={showPassword ? "text" : "password"}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <img src={password} alt="password" />
-                  </InputAdornment>
-                ),
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton onClick={handleTogglePassword} edge="end">
-                      {showPassword ? (
-                        <img src={Visibility} alt="Visibility" />
-                      ) : (
-                        <img src={VisibilityOff} alt="VisibilityOff" />
-                      )}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
-
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-around",
-                alignItems: "center",
-                my: 1,
-              }}
-            >
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    icon={
-                      <img
-                        src={uncheckedImg}
-                        alt="checked"
-                        width={22}
-                        height={22}
-                      />
-                    }
-                    checkedIcon={
-                      <img
-                        src={checkedImg}
-                        alt="checked"
-                        width={22}
-                        height={22}
-                      />
-                    }
-                  />
-                }
-                label="Remember me"
+            {/* Email */}
+            <Box className="customInput">
+              <span className="customInputLabel">Email</span>
+              <TextField
+                fullWidth
+                variant="standard"
+                InputProps={{ disableUnderline: true }}
+                placeholder="Enter Email"
               />
-              <Link
-                href="/new-password"
-                variant="body2"
-                underline="hover"
-                sx={{
-                  fontSize: "17px",
-                  color: "#383737",
-                  fontWeight: "300",
-                }}
-              >
+            </Box>
+
+            {/* Password */}
+            <Box className="customInput">
+              <span className="customInputLabel">Current Password</span>
+
+              <Box className="passwordWrapper">
+                <input
+                  type="text"
+                  className="passwordInput"
+                  value={showPassword ? password : "*".repeat(password.length)}
+                  onChange={(e) => {
+                    const newValue = e.target.value;
+
+                    if (showPassword) {
+                      // When visible: store the real password
+                      setPassword(newValue);
+                    } else {
+                      // When hidden: detect NEW characters typed
+                      const typedChar = newValue[newValue.length - 1];
+                      if (typedChar) {
+                        setPassword(password + typedChar);
+                      }
+                    }
+                  }}
+                />
+
+                <IconButton onClick={() => setShowPassword(!showPassword)}>
+                  <img src={showPassword ? eyeOpen : eyeClose} alt="toggle" />
+                </IconButton>
+              </Box>
+            </Box>
+            {/* Remember + Forgot */}
+            <Box className="remember-forgot">
+              <Checkbox
+                icon={<img src={uncheckedImg} width={18} />}
+                checkedIcon={<img src={checkedImg} width={18} />}
+              />
+              <span className="remember-text">Remember Me</span>
+
+              <Link to="/new-password" className="forgot-link">
                 Forgot Password?
               </Link>
             </Box>
 
-            {/* Login Button */}
-            <Button
-              fullWidth
-              variant="contained"
-              sx={{
-                mt: 2,
-                py: 1.5,
-                background: "linear-gradient(94deg, #c958fd 0%, #290fa0 100%)",
-                textTransform: "none",
-                fontWeight: "400",
-                height: "53px",
-                borderRadius: "26px",
-                fontSize: "17px",
-              }}
-              onClick={handleClickOpen}
-            >
-              Login
+            {/* Sign In Button */}
+            <Button fullWidth className="signInBtn">
+              Sign In
             </Button>
-            {/* <Box
-              sx={{
-                textAlign: "center",
-                my: 3,
-                fontSize: "17px",
-                color: "#383737",
-                fontWeight: "300",
-              }}
-            >
-              By clicking Login , you agree to our
-              <Link
-                onClick={handleClickOpen}
-                variant="body2"
-                underline="hover"
-                sx={{
-                  fontSize: "17px",
-                  color: "#383737",
-                  fontWeight: "300",
-                  marginLeft: "5px;",
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                }}
-              >
-                Terms and Conditions
-              </Link>
-            </Box> */}
-          </div>
+          </Box>
         </Box>
-
-        <Dialog
-          open={showModal}
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-          className="LoginPopup"
-          fullWidth
-          maxWidth="md"
-          sx={{
-            borderRadius: "20px",
-          }}
-        >
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              <h1>Successfull</h1>
-              <p>You’re in! Explore your dashboard.</p>
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              my: 1,
-            }}
-          >
-            <Link
-              href="/terms-condition"
-              onClick={handleClose}
-              className="DashboardBtn"
-            >
-              Go to Dashboard
-            </Link>
-          </DialogActions>
-          <img src={logo1} />
-        </Dialog>
-      </Grid>
-    </Grid>
+      </Box>
+    </Box>
   );
 }

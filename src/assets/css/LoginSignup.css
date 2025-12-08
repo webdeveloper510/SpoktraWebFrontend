@@ -1,57 +1,19 @@
+.login-container {
+  background: url(../images/loginbg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+img.girl-img {
+  width: 100%;
+}
+img.brand-logo {
+  position: absolute;
+  right: 0;
+}
 .ColorLogo {
   margin-bottom: 30px;
 }
-.inputFields .MuiInputBase-root.MuiOutlinedInput-root {
-  height: 65px;
-  border-radius: 35px;
-  background-color: #f0f0f0;
-  padding: 0px 35px;
-}
-.inputFields input {
-  padding: 10px;
-  border-radius: 0px !important;
-}
-.inputFields .MuiOutlinedInput-notchedOutline {
-  border: none !important;
-}
 
-button:focus,
-button:focus-visible {
-  outline: none !important;
-}
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 1000px #f0f0f0 inset !important;
-  box-shadow: 0 0 0 1000px #f0f0f0 inset !important;
-  -webkit-text-fill-color: #000 !important;
-  transition: background-color 0s 600000s, color 0s 600000s !important;
-}
-.formRow {
-  width: 55%;
-  margin: 30px 0px;
-}
-
-.LoginPopup {
-  text-align: center;
-}
-
-.LoginPopup h1 {
-  color: #fff;
-  font-size: 43px;
-  letter-spacing: -1px;
-  font-weight: normal;
-}
-.LoginPopup p {
-  color: #fff;
-  font-weight: normal;
-  font-size: 27px;
-}
-
-.LoginPopup .MuiPaper-root.MuiPaper-elevation {
-  background: linear-gradient(to right, #a64ef4, #2b0b8f);
-  border-radius: 10px;
-}
 .DashboardBtn {
   background: #fff !important;
   border-radius: 100px !important;
@@ -65,4 +27,106 @@ input:-webkit-autofill:focus {
 }
 .LoginPopup .css-1cennmq-MuiBackdrop-root-MuiDialog-backdrop {
   background: #fff !important;
+}
+/* Wrapper login box */
+.login-box {
+  width: 380px;
+  text-align: left;
+  font-family: var(--body-font-family) !important;
+}
+
+/* Title */
+.welcome-title {
+  font-size: 44px !important;
+  font-weight: 700 !important;
+  background: linear-gradient(90deg, #d252f3 0%, #1610d5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Subtitle */
+.welcome-subtitle {
+  font-size: 20px !important;
+  color: #272a2f !important;
+  margin-bottom: 28px !important;
+  font-family: var(--body-font-family) !important;
+}
+/* Inputs */
+.inputField input {
+  font-size: 14px;
+}
+
+.inputField .MuiOutlinedInput-root {
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.inputField .MuiOutlinedInput-notchedOutline {
+  border-color: #e5e5e5 !important;
+}
+
+/* Remember + forgot row */
+.remember-forgot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 6px 0 22px;
+}
+
+.remember-text {
+  font-size: 14px;
+  color: #555;
+  margin-left: -6px;
+}
+
+.forgot-link {
+  font-size: 14px;
+  color: #8c52ff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Sign-In Button */
+.signInBtn {
+  height: 52px;
+  border-radius: 14px !important;
+  font-size: 16px !important;
+  color: white !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  background: linear-gradient(90deg, #5865f2, #d76eff) !important;
+  box-shadow: 0 6px 16px rgba(143, 60, 255, 0.25) !important;
+}
+.customInput {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.customInputLabel {
+  font-size: 12px;
+  color: #5f6d7e;
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+.customInput .MuiInputBase-input {
+  font-size: 16px;
+  color: #272a2f;
+  padding: 4px 0;
+  background-color: transparent !important;
+  border: none !important;
+  font-weight: 600;
+}
+button:focus,
+button:focus-visible {
+  outline: none !important;
 }
