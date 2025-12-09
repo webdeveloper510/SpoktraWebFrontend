@@ -76,14 +76,14 @@ img.brand-logo {
 }
 
 .remember-text {
-  font-size: 14px;
-  color: #555;
-  margin-left: -6px;
+  font-size: 16px;
+  color: #5f6d7e;
+  margin-left: 0px;
 }
 
 .forgot-link {
-  font-size: 14px;
-  color: #8c52ff;
+  font-size: 16px;
+  color: #d252f3 !important;
   cursor: pointer;
   text-decoration: none;
 }
@@ -92,7 +92,7 @@ img.brand-logo {
 .signInBtn {
   height: 52px;
   border-radius: 14px !important;
-  font-size: 16px !important;
+  font-size: 20px !important;
   color: white !important;
   text-transform: none !important;
   font-weight: 600 !important;
@@ -100,7 +100,7 @@ img.brand-logo {
   box-shadow: 0 6px 16px rgba(143, 60, 255, 0.25) !important;
 }
 .customInput {
-  width: 100%;
+  /* width: 100%; */
   background: #ffffff;
   border: 1px solid #e5e5e5;
   border-radius: 14px;
@@ -119,14 +119,83 @@ img.brand-logo {
   font-weight: 600;
 }
 .customInput .MuiInputBase-input {
-  font-size: 16px;
+  font-size: 18px;
   color: #272a2f;
   padding: 4px 0;
   background-color: transparent !important;
   border: none !important;
   font-weight: 600;
+  letter-spacing: 0.3px !important;
 }
 button:focus,
-button:focus-visible {
+button:focus-visible,
+input.passwordInput:focus,
+input.passwordInput:focus-visible {
   outline: none !important;
+}
+input.passwordInput {
+  width: 100%;
+  font-size: 18px;
+  color: #272a2f;
+  padding: 4px 0;
+  background-color: transparent !important;
+  border: none !important;
+  font-weight: 600;
+  letter-spacing: 0.3px !important;
+}
+.passwordWrapper {
+  display: flex;
+}
+.popup-title {
+  font-size: 34px !important;
+  font-weight: 700 !important;
+  background: linear-gradient(90deg, #d252f3 0%, #1610d5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  width: 100%;
+  font-family: var(--body-font-family) !important;
+}
+.type-text {
+  color: #272a2f;
+  font-size: 22px !important;
+  margin-bottom: 5px !important;
+}
+.closeBtn {
+  position: absolute !important;
+  top: -9px;
+  z-index: 99;
+  background: linear-gradient(180deg, #5865f2, #d76eff) !important;
+}
+.resendTimer {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 14px;
+  color: #7d7f82;
+}
+.PopupBtn {
+  width: 50% !important;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.fade-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms ease, transform 300ms ease;
 }

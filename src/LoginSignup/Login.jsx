@@ -13,16 +13,16 @@ import {
 import "../assets/css/LoginSignup.css";
 
 import girlImg from "../assets/images/Loginimage.png";
-import brandLogo from "../assets/images/logo2.png";
+import brandLogo from "../assets/images/logo3.png";
 import eyeOpen from "../assets/images/showpassword.png";
 import eyeClose from "../assets/images/hidepassword.png";
 import checkedImg from "../assets/images/checked.png";
 import uncheckedImg from "../assets/images/unchecked.png";
+import MultiStepPopup from "./MultiStepPopup"; // path to component
 
 export default function LoginPage() {
-  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-
+  const [openPopup, setOpenPopup] = useState(false);
   return (
     <Box
       className="login-container"
@@ -87,40 +87,34 @@ export default function LoginPage() {
             {/* Password */}
             <Box className="customInput">
               <span className="customInputLabel">Current Password</span>
-
-              <Box className="passwordWrapper">
-                <input
-                  type="text"
-                  className="passwordInput"
-                  value={showPassword ? password : "*".repeat(password.length)}
-                  onChange={(e) => {
-                    const newValue = e.target.value;
-
-                    if (showPassword) {
-                      // When visible: store the real password
-                      setPassword(newValue);
-                    } else {
-                      // When hidden: detect NEW characters typed
-                      const typedChar = newValue[newValue.length - 1];
-                      if (typedChar) {
-                        setPassword(password + typedChar);
-                      }
-                    }
-                  }}
-                />
-
-                <IconButton onClick={() => setShowPassword(!showPassword)}>
-                  <img src={showPassword ? eyeOpen : eyeClose} alt="toggle" />
-                </IconButton>
-              </Box>
+              <TextField
+                fullWidth
+                type={showPassword ? "text" : "password"}
+                variant="standard"
+                placeholder="Enter Password"
+                InputProps={{
+                  disableUnderline: true,
+                  endAdornment: (
+                    <IconButton onClick={() => setShowPassword(!showPassword)}>
+                      <img
+                        src={showPassword ? eyeOpen : eyeClose}
+                        alt="toggle"
+                      />
+                    </IconButton>
+                  ),
+                }}
+              />
             </Box>
             {/* Remember + Forgot */}
             <Box className="remember-forgot">
-              <Checkbox
-                icon={<img src={uncheckedImg} width={18} />}
-                checkedIcon={<img src={checkedImg} width={18} />}
-              />
-              <span className="remember-text">Remember Me</span>
+              <div>
+                <Checkbox
+                  icon={<img src={uncheckedImg} width={18} />}
+                  checkedIcon={<img src={checkedImg} width={18} />}
+                />
+                {""}
+                <span className="remember-text">Remember Me</span>
+              </div>
 
               <Link to="/new-password" className="forgot-link">
                 Forgot Password?
@@ -128,9 +122,19 @@ export default function LoginPage() {
             </Box>
 
             {/* Sign In Button */}
-            <Button fullWidth className="signInBtn">
+            <Button
+              fullWidth
+              className="signInBtn"
+              onClick={() => setOpenPopup(true)}
+            >
               Sign In
             </Button>
+
+            {/* Multi Step Popup */}
+            <MultiStepPopup
+              open={openPopup}
+              onClose={() => setOpenPopup(false)}
+            />
           </Box>
         </Box>
       </Box>
