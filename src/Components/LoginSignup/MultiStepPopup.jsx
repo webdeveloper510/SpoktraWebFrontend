@@ -1,5 +1,6 @@
 // MultiStepPopup.jsx
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
@@ -18,9 +19,11 @@ import {
 
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import MailOutlineIcon from "../assets/images/email.png";
-import SmartphoneIcon from "../assets/images/phone.png";
-import SuccessImage from "../assets/images/successimage.png";
+import MailOutlineIcon from "../../assets/images/email.png";
+import SmartphoneIcon from "../../assets/images/phone.png";
+import SuccessImage from "../../assets/images/successimage.png";
+import checkedImg from "../../assets/images/checked.png";
+import uncheckedImg from "../../assets/images/unchecked.png";
 
 /* -----------------------------------------------------------
    Custom Styled Components
@@ -112,6 +115,7 @@ const OtpBox = styled(TextField)(() => ({
 ----------------------------------------------------------- */
 
 export default function MultiStepPopup({ open, onClose }) {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [checked, setChecked] = useState(false);
 
@@ -120,6 +124,10 @@ export default function MultiStepPopup({ open, onClose }) {
   const handleClosePopup = () => {
     setStep(1);
     onClose();
+  };
+  const handleAccept = () => {
+    handleClosePopup(); // If you want the popup to close
+    navigate("/dashboard"); // Redirect user to dashboard page
   };
 
   return (
@@ -131,7 +139,10 @@ export default function MultiStepPopup({ open, onClose }) {
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 400,
-          style: { background: "rgba(0,0,0,0.55)" },
+          style: {
+            background: "rgb(19 11 82 / 60%)",
+            backdropFilter: "blur(6px)",
+          },
         }}
         PaperProps={{
           style: {
@@ -351,7 +362,12 @@ export default function MultiStepPopup({ open, onClose }) {
                   Terms & Conditions
                 </Typography>
 
-                <Typography fontSize={13} color="#555" lineHeight={1.7} mb={3}>
+                <Typography
+                  fontSize={16}
+                  color="#272A2F"
+                  lineHeight={1.7}
+                  mb={3}
+                >
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s, when an unknown
@@ -367,7 +383,12 @@ export default function MultiStepPopup({ open, onClose }) {
                   essentially unchanged.
                 </Typography>
 
-                <Typography fontSize={13} color="#555" lineHeight={1.7} mb={3}>
+                <Typography
+                  fontSize={16}
+                  color="#272A2F"
+                  lineHeight={1.7}
+                  mb={3}
+                >
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s, when an unknown
@@ -376,17 +397,20 @@ export default function MultiStepPopup({ open, onClose }) {
                 </Typography>
 
                 <Stack direction="row" alignItems="center" spacing={1} mb={3}>
-                  <Checkbox
-                    size="small"
-                    checked={checked}
-                    onChange={(e) => setChecked(e.target.checked)}
+                  {/* Custom image toggle on click */}
+                  <img
+                    src={checked ? checkedImg : uncheckedImg}
+                    alt="check-icon"
+                    style={{ width: 20, height: 20, cursor: "pointer" }}
+                    onClick={() => setChecked(!checked)}
                   />
-                  <Typography fontSize={12}>
+
+                  <Typography fontSize={16} color="#5F6D7E">
                     I Agree to the Terms & Conditions
                   </Typography>
                 </Stack>
 
-                <GradientButton disabled={!checked} onClick={handleClosePopup}>
+                <GradientButton disabled={!checked} onClick={handleAccept}>
                   Accept and Continue
                 </GradientButton>
               </>

@@ -12,12 +12,12 @@ import {
   InputAdornment,
   IconButton,
 } from "@mui/material";
-import "../assets/css/LoginSignup.css";
-import logo from "../assets/images/logo1.png";
-import logo1 from "../assets/images/logo2.png";
+import "../../assets/css/LoginSignup.css";
+import logo from "../../assets/images/logo1.png";
+import logo1 from "../../assets/images/logo2.png";
 
-import Visibility from "../assets/images/showpassword.png";
-import VisibilityOff from "../assets/images/hidepassword.png";
+import Visibility from "../../assets/images/showpassword.png";
+import VisibilityOff from "../../assets/images/hidepassword.png";
 
 export default function NewPassword() {
   const [showPassword, setShowPassword] = React.useState(false);

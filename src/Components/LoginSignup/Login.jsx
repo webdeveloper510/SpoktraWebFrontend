@@ -10,14 +10,14 @@ import {
   IconButton,
 } from "@mui/material";
 
-import "../assets/css/LoginSignup.css";
+import "../../assets/css/LoginSignup.css";
 
-import girlImg from "../assets/images/Loginimage.png";
-import brandLogo from "../assets/images/logo3.png";
-import eyeOpen from "../assets/images/showpassword.png";
-import eyeClose from "../assets/images/hidepassword.png";
-import checkedImg from "../assets/images/checked.png";
-import uncheckedImg from "../assets/images/unchecked.png";
+import girlImg from "../../assets/images/Loginimage.png";
+import brandLogo from "../../assets/images/logo3.png";
+import eyeOpen from "../../assets/images/showpassword.png";
+import eyeClose from "../../assets/images/hidepassword.png";
+import checkedImg from "../../assets/images/checked.png";
+import uncheckedImg from "../../assets/images/unchecked.png";
 import MultiStepPopup from "./MultiStepPopup"; // path to component
 
 export default function LoginPage() {
